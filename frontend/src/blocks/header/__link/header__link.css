@@ -1,0 +1,17 @@
+.header__link {
+  max-width: 56px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(169, 169, 169, 1);
+  text-decoration: none;
+  text-align: right;
+  transition: opacity .2s linear;
+  margin-top: 6px;
+}
+
+.header__link:hover {
+  opacity: .6;
+  cursor: pointer;
+}

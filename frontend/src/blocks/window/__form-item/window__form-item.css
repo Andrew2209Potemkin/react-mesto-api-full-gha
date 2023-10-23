@@ -1,0 +1,21 @@
+.window__form-item {
+  max-width: 358px;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgba(204, 204, 204, 1);
+  padding: 0 0 10px;
+  background-color: black;
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+  color: rgba(204, 204, 204, 1);
+  outline: none;
+}
+
+.window__form-item:last-of-type {
+  margin-top: 30px;
+}

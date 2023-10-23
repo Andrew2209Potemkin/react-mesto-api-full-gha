@@ -1,0 +1,10 @@
+.window__link {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .2s linear;
+}
+
+.window__link:hover {
+  opacity: .6;
+}

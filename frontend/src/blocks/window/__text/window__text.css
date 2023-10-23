@@ -1,0 +1,10 @@
+.window__text {
+  max-width: 358px;
+  width: 100%;
+  margin: 15px 0 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+}
