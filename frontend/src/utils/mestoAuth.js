@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://api.potemkin.students.nomoredomainsrocks.ru";
 
 function checkAnswer(res) {
   if (res.ok) {

@@ -32,19 +32,19 @@ function App() {
   const [message, setMessage] = React.useState('');
   const navigate = useNavigate();
 
-  function handleEditAvatarClick() {
+  function handleEditAvatarClick() { //yes
     setIsEditAvatarPopupOpen(true);
   };
 
-  function handleEditProfileClick() {
+  function handleEditProfileClick() { //yes
     setIsEditProfilePopupOpen(true);
   };
 
-  function handleAddPlaceClick() {
+  function handleAddPlaceClick() { //yes
     setIsAddPlacePopupOpen(true);
   };
 
-  function handleCardClick(selectedCard) {
+  function handleCardClick(selectedCard) { //yes
     setSelectedCard(selectedCard);
   };
 
@@ -52,7 +52,7 @@ function App() {
     setInfoTooltip(true);
   };
 
-  function closeAllPopups() {
+  function closeAllPopups() { //yes
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
@@ -60,8 +60,8 @@ function App() {
     setSelectedCard({});
   };
 
-  function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+  function handleCardLike(card) { //yes
+    const isLiked = card.likes.some((id) => id === currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -71,7 +71,7 @@ function App() {
       })
   };
 
-  function handleCardDelete(card) {
+  function handleCardDelete(card) { //yes
     api.deleteCard(card._id)
       .then((res) => {
         setCards((state) => state.filter((c) => c._id !== card._id));
@@ -81,7 +81,7 @@ function App() {
       })
   };
 
-  function handleUpdateUser({ name, about }) {
+  function handleUpdateUser({ name, about }) { //yes
     api.editProfile(name, about)
       .then((res) => {
         setCurrentUser(res);
@@ -92,7 +92,7 @@ function App() {
       })
   };
 
-  function handleUpdateAvatar({ avatar }) {
+  function handleUpdateAvatar({ avatar }) { //yes
     api.updateUserAvatar(avatar)
       .then((res) => {
         setCurrentUser(res);
@@ -103,7 +103,7 @@ function App() {
       })
   };
 
-  function handleAddPlaceSubmit({ name, link }) {
+  function handleAddPlaceSubmit({ name, link }) {//yes
     api.addNewCard(name, link)
       .then((res) => {
         setCards([res, ...cards]);
@@ -120,13 +120,13 @@ function App() {
     }
   };
 
-  function handleSubmitRegister({ email, password }) {
+  function handleSubmitRegister({ email, password }) { //yes
     mestoAuth.register(email, password)
       .then((res) => {
         if (res) {
           setImage(success);
           setMessage("Вы успешно зарегистрировались!");
-          navigate("/sign-in");
+          navigate("/signin", { replace: true });
         }
       })
       .catch((err) => {
@@ -143,7 +143,7 @@ function App() {
         localStorage.setItem("jwt", res.token);
         setLoggedIn(true);
         setEmail(email);
-        navigate("/");
+        navigate("/", { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -156,15 +156,16 @@ function App() {
   function handleSignOut() {
     setLoggedIn(false);
     setEmail("");
-    navigate("/sign-in");
+    navigate("/signin", { replace: true });
     localStorage.removeItem("jwt");
   };
 
   React.useEffect(() => {
+
     if (loggedIn) {
       api.getInitialCards()
         .then((res) => {
-          setCards(res);
+          setCards(res.reverse());
         })
         .catch((err) => {
           console.log(err);
@@ -202,14 +203,15 @@ function App() {
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            setEmail(res.data.email);
+            setEmail(res.email);
+            navigate("/", { replace: true });
           }
         })
         .catch((err) => {
           console.log(err);
-        })
+        });
     }
-  }, []);
+  }, [navigate]);
 
   React.useEffect(() => {
     if (loggedIn === true) {
