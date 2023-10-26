@@ -5,7 +5,7 @@
 
 Cсылка на сайт, размещенный на Яндекс.Облаке: https://cloud.yandex.ru/
 
-Адрес репозитория: https://andrew2209potemkin.github.io/react-mesto-api-full-gha/
+Адрес репозитория: https://github.com/Andrew2209Potemkin/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
