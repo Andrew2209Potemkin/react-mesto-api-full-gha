@@ -11,10 +11,10 @@ const errorHandler = require('./middlewares/errorHandler');
 const cors = require('./middlewares/cors');
 
 const app = express();
-const { PORT = 3000, DB_ADDRES } = process.env;
+const { PORT = 3000 } = process.env;
 const routes = require('./routes');
 
-mongoose.connect(DB_ADDRES, {
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
