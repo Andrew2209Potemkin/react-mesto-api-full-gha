@@ -9,7 +9,7 @@ Cсылка на сайт, размещенный на Яндекс.Облаке
 
 ## Ссылки на проект
 
-IP-адрес 158.160.111.162
+IP 158.160.111.162
 
 Frontend https://potemkin.students.nomoredomainsrocks.ru
 
