@@ -1,6 +1,8 @@
 const allowedCors = [
   'https://potemkin.students.nomoredomainsrocks.ru',
   'http://potemkin.students.nomoredomainsrocks.ru',
+  'https://api.potemkin.students.nomoredomainsrocks.ru',
+  'http://api.potemkin.students.nomoredomainsrocks.ru',
   'http://localhost:3000',
   'https://localhost:3000',
   'http://localhost:3001',
